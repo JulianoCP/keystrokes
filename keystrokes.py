@@ -1,4 +1,4 @@
-import ctypes, time, win32gui, random, keyboard
+import ctypes, time, random, keyboard
 
 PUL = ctypes.POINTER(ctypes.c_ulong)
 class KeyBdInput(ctypes.Structure): _fields_ = [("wVk", ctypes.c_ushort), ("wScan", ctypes.c_ushort), ("dwFlags", ctypes.c_ulong), ("time", ctypes.c_ulong), ("dwExtraInfo", PUL)]
@@ -16,12 +16,6 @@ class Game:
             'y': 0x2C, 'x': 0x2D, 'c': 0x2E, 'v': 0x2F, 'b': 0x30, 'n': 0x31, 'm': 0x32, 'p':0x19 
         }
 
-    def find_window(self, class_name, window_name=None):
-        self._handle = win32gui.FindWindow(class_name, window_name)
-
-    def set_foreground(self):
-        win32gui.SetForegroundWindow(self._handle)
-
     def press_key(self, key):
         input_int = ctypes.c_ulong(0); ii_ = Input_I(); flags = 0x0008
         ii_.ki = KeyBdInput(0, self.map_keys[key], flags, 0, ctypes.pointer(input_int))
@@ -37,16 +31,12 @@ class Game:
 def main():
 
     GAME = Game()
-    GAME.find_window(None, "Warframe")
-    GAME.set_foreground()
-
     start_attack = False
 
     while(True):
         if keyboard.is_pressed("ENTER"):
             if start_attack: start_attack = False
             else: start_attack = True
-            time.sleep(2)
 
         if start_attack:
            GAME.press_key('e'); GAME.release_key('e')
