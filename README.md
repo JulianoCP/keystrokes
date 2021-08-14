@@ -1,5 +1,5 @@
 # keystrokes
-Software feito em python para ficar pressionando uma determinada tecla no window.
+Software feito em python para ficar pressionando uma determinada tecla dentro de um game no sistema window.
 
 # Executar o software
 Para executar o software é simples, entre no diretório que você fez o clone e utilize o comando:
