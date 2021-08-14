@@ -39,13 +39,27 @@ def main():
     GAME = Game()
     start_attack = False
 
+    print("I would like to repeat: \n\n [1] - A keyboard key.\n [2] - A mouse button.\n")
+    option = input("Option number: ")
+
+    if option == "1":
+        option = input("Which key would you like to repeat: ")
+    else:
+        print("Fail")
+        time.sleep(2)
+        exit()
+
+    print("\n+------------------------------------------------------------------+")
+    print(" All set, turn on / off keep the KEY_ENTER pressed inside the game. ")
+    print("+------------------------------------------------------------------+")
+    
     while(True):
         if keyboard.is_pressed("ENTER"):
             if start_attack: start_attack = False
             else: start_attack = True
 
         if start_attack:
-           GAME.press_key('e'); GAME.release_key('e')
+           GAME.press_key(option.lower()); time.sleep(0.1); GAME.release_key(option.lower())
            time.sleep(random.uniform(0.3, 0.6))
         else: time.sleep(1)
 

@@ -14,6 +14,9 @@ Quando você estiver dentro do jogo, pressione a tecla ‘ENTER’ durante um te
 Lembrando que você precisa conter em sua máquina as seguintes bibliotecas:
 
 ```Instalar as dependências
+apt update
+apt install python3
+apt install python3-pip
 pip3 install pynput
 pip3 install keyboard
 ```
