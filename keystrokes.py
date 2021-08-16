@@ -85,9 +85,9 @@ def main():
 
         if start_attack:
            GAME.press_key(option.lower()); 
-           time.sleep(random.uniform(0.1, 0.3))
+           time.sleep(random.uniform(0.05, 0.1))
            GAME.release_key(option.lower())
-           time.sleep(random.uniform(0.3, 0.6))
+           time.sleep(random.uniform(0.1, 0.2))
         else: time.sleep(1)
 
 if __name__ == '__main__': 
